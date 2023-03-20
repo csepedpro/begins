@@ -1,4 +1,4 @@
-package begins
+package main
 
 import "fmt"
 
@@ -73,7 +73,7 @@ func Task1124() {                             //Дан массив, состо�
 
   fmt.Print("Enter the number of elements in the array: ")
   fmt.Scan(&amountOfNumbers)
-    
+      
   var arrayOfNumbers []int = make([]int, int(amountOfNumbers))
   
   for inputIndex := 0; inputIndex < len(arrayOfNumbers); inputIndex++ {

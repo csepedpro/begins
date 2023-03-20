@@ -1,4 +1,4 @@
-package begins
+package main
 
 import "fmt"
 
