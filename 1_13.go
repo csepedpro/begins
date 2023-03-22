@@ -5,7 +5,52 @@ import (
 	"strconv"
 )
 
-func Task1131() {                               //Дано трехзначное число. Найдите сумму его цифр. 
+//Дано трехзначное число. Найдите сумму его цифр.
+
+func Tasks113() {
+	var userChoice string
+
+  fmt.Print("Select the task number: ")
+  fmt.Scan(&userChoice)
+
+  switch userChoice {
+  case "1":
+  	PrintSumOfThreeDigitsOfNumber()
+  case "2":
+    PrintReversedThreeDigitNumber()  
+  case "3":
+    PrintNumberOfHoursAndMinutes()
+  case "4":
+    RightTriangleOrNot()
+  case "5":
+    TriangleExistsOrNot()  
+	case "6":
+    ArithmeticMeanOfTwoNumbers()
+	case "7":
+    CountTheNumberOfZeros()  
+	case "8":
+    NumberOfMinimumNumbers()  
+	case "9":
+    DetermineDigitalRoot()
+	case "10":
+    FindTheLargestMultipleOfSeven()                                                             
+	case "11":
+		TypeTheWordInTheCorrectDeclension()
+	case "12":
+		PowerOfTwoToNumberValues()
+	case "13":
+		FibonacciNumberOrNot()
+	case "14":
+		PrintNumberInBinary()
+	case "15":
+		DeleteGivenNumber()
+  default:
+    fmt.Println("Introduced a non-existent variant! Please try again.")
+    Tasks113() 
+  }
+}
+
+func PrintSumOfThreeDigitsOfNumber() {                                     
   var (
 		number int
 		result int
@@ -15,8 +60,8 @@ func Task1131() {                               //Дано трехзначно�
   fmt.Scan(&number)
     
   if number > 1000 && number < 100 {
-    fmt.Println("")
-  	Task1131()
+    fmt.Println("Number doesn't fit. Please try again.")
+  	PrintSumOfThreeDigitsOfNumber()
   }
 
   result = number % 10 + number / 100 + (number / 10) % 10  
@@ -24,7 +69,9 @@ func Task1131() {                               //Дано трехзначно�
   fmt.Println("Result: ", result)
 }
 
-func Task1132() {                                   //Дано трехзначное число. Переверните его, а затем выведите. 
+ //Дано трехзначное число. Переверните его, а затем выведите. 
+
+func PrintReversedThreeDigitNumber() {                                    
   var number, digit1, digit2, digit3 int
     
   fmt.Print("Enter your number: ")
@@ -37,8 +84,10 @@ func Task1132() {                                   //Дано трехзнач�
   fmt.Printf("Inverted number: %d%d%d", digit3, digit2, digit1)
 }
 
-func Task1133() {                         //Идёт k-я секунда суток. Определите, сколько целых часов 
-  var (                                   //h и целых минут m прошло с начала суток.
+//Идёт k-я секунда суток. Определите, сколько целых часов h и целых минут m прошло с начала суток.
+
+func PrintNumberOfHoursAndMinutes() {                                   
+  var (                                                                 
     dailySecond  int
     numberOfHours int
     numberOfMinutes int
@@ -55,9 +104,12 @@ func Task1133() {                         //Идёт k-я секунда сут�
 
 }
 
-func Task1134() {                                     //Заданы три числа - a,b,c(a<b<c)a,b,c(a<b<c) - длины сторон треугольника. 
-  var (                                               //Нужно проверить, является ли треугольник прямоугольным. Если является, 
-    hypotenuse int                                    //вывести "Прямоугольный". Иначе вывести "Непрямоугольный".
+//Заданы три числа - a,b,c(a<b<c)a,b,c(a<b<c) - длины сторон треугольника. Нужно проверить, 
+//является ли треугольник прямоугольным. Если является, вывести "Прямоугольный". Иначе вывести "Непрямоугольный".
+
+func RightTriangleOrNot() {                                              
+  var (                                                                 
+    hypotenuse int                                                      
     leg1 int
     leg2 int
   )
@@ -66,7 +118,7 @@ func Task1134() {                                     //Заданы три чи
   fmt.Scan(&leg1, &leg2, &hypotenuse)
     
   if hypotenuse < leg1 || hypotenuse < leg2 {
-    Task1134()   
+    RightTriangleOrNot()   
   }
     
   if leg1 * leg1 + leg2 * leg2 == hypotenuse * hypotenuse {
@@ -76,8 +128,10 @@ func Task1134() {                                     //Заданы три чи
   }
 }
 
-func Task1135() {                                     //Даны три натуральных числа a, b, c. Определите, существует 
-  var (                                               //ли треугольник с такими сторонами.
+ //Даны три натуральных числа a, b, c. Определите, существует ли треугольник с таким сторонами.
+
+func TriangleExistsOrNot() {                                           
+  var (                                                                
     side1 int
     side2 int
     side3 int
@@ -92,13 +146,28 @@ func Task1135() {                                     //Даны три нату
   }
 }
 
-func Task1136() {                             //Даны два числа. Найти их среднее арифметическое.
-  var (
+//Даны два числа. Найти их среднее арифметическое.
 
+func ArithmeticMeanOfTwoNumbers() {                                                       
+  var (
+    number1 float64
+    number2 float64
   )
+
+  fmt.Print("Enter 2 numbers separated by a space: ")
+  fmt.Scan(&number1, &number2)
+
+  result := (number1 + number2) / 2.0
+
+  //Число 2.0 используется для того, чтобы произвести деление
+  //с плавающей точкой и получить результат также с плавающей точкой. 
+
+  fmt.Println(result)
 }
 
-func Task1137() {                             //По данным числам, определите количество чисел, которые равны нулю.  
+//По данным числам, определите количество чисел, которые равны нулю. 
+
+func CountTheNumberOfZeros() {                                                        
   var amountOfNumber int
   var number int
   var numberOfZeros int
@@ -118,7 +187,9 @@ func Task1137() {                             //По данным числам, 
   fmt.Print("Number of zeros: ", numberOfZeros)
 }
 
-func Task1138() {                                     //Найдите количество минимальных элементов в последовательности.
+//Найдите количество минимальных элементов в последовательности.
+
+func NumberOfMinimumNumbers() {                                                       
   var (
     number int
     amountOfNumbers int
@@ -148,13 +219,24 @@ func Task1138() {                                     //Найдите коли�
   fmt.Print(quantity)  
 }
 
-func Task1139() {                                     //По данному числу определите его цифровой корень.
-var (
+//По данному числу определите его цифровой корень.
 
-)
+func DetermineDigitalRoot() {                                                         
+  var number int
+   
+  fmt.Print("Enter your number: ")
+  fmt.Scan(&number)
+  
+  result := (number - 1) % 9 + 1
+
+  //https://codeforces.com/blog/entry/18286 - Формула для цифрового корня
+
+  fmt.Print(result)
 }
 
-func Task11310() {                                    //Найдите самое большее число на отрезке от a до b, кратное 7 .
+//Найдите самое большее число на отрезке от a до b, кратное 7.
+
+func FindTheLargestMultipleOfSeven() {                                                        
   var (
     firstBorder int
     secondBorder int
@@ -184,8 +266,11 @@ func Task11310() {                                    //Найдите само�
   }
 }
 
-func Task11311() {                            //По данному числу n закончите фразу "На лугу пасется..." одним из возможных
-  var numberOfCows int                        // продолжений: "n коров", "n корова", "n коровы", правильно склоняя слово "корова".
+//По данному числу n закончите фразу "На лугу пасется..." одним из возможных
+// продолжений: "n коров", "n корова", "n коровы", правильно склоняя слово "корова".
+
+func TypeTheWordInTheCorrectDeclension() {                                                          
+  var numberOfCows int                                                      
     
   fmt.Scan(&numberOfCows)
     
@@ -204,11 +289,15 @@ func Task11311() {                            //По данному числу n
     fmt.Print(numberOfCows, " korov")
   default:
     fmt.Print("Invalid input. Try again!")
+    TypeTheWordInTheCorrectDeclension()
   }
 }
 
-func Task11312() {                            //По данному числу N распечатайте все целые значения степени двойки,
-    var (                                     //не превосходящие N, в порядке возрастания.
+//По данному числу N распечатайте все целые значения степени двойки,
+//не превосходящие N, в порядке возрастания.
+
+func PowerOfTwoToNumberValues() {                                                                  
+    var (                                     
         number int 
         power int = 1
     )
@@ -221,9 +310,13 @@ func Task11312() {                            //По данному числу N
     }
 }
 
-func numberFibonacci() {            //Дано натуральное число A > 1. Определите, каким по счету числом Фибоначчи 
-  var (                             //оно является, то есть выведите такое число n, что φn=A. Если А не является
-    fibonacciNumber int              //числом Фибоначчи, выведите число -1.                                           
+//Дано натуральное число A > 1. Определите, каким по счету числом Фибоначчи
+//оно является, то есть выведите такое число n, что φn=A. Если А не является
+//числом Фибоначчи, выведите число -1.
+
+func FibonacciNumberOrNot() {          
+  var (                            
+    fibonacciNumber int                                                       
     firstNumber int = 1
     secondNumber int = 1
     flag bool = true
@@ -245,13 +338,15 @@ func numberFibonacci() {            //Дано натуральное число
       break
     }  
   }
-
+  
   if flag == false {
     fmt.Print("-1")  
   }  
 }
 
-func Task11314() {              //Дано натуральное число N. Выведите его представление в двоичном виде.
+//Дано натуральное число N. Выведите его представление в двоичном виде.
+
+func PrintNumberInBinary() {              
   var number int64
   var binaryNumber string
 
@@ -263,52 +358,30 @@ func Task11314() {              //Дано натуральное число N. 
   fmt.Println("Binary number:", binaryNumber)
 }
 
-func Task11315() {              //Из натурального числа удалить заданную цифру.              
-var (
+//Из натурального числа удалить заданную цифру.
 
-)
+func DeleteGivenNumber() {                            
+  var (
+    digit string
+    number string
+    result string
+  )
 
-}
+  fmt.Print("Enter your number: ")
+  fmt.Scan(&number)
 
-func Task113() {
-	var userChoice string
+  fmt.Print("Enter the number to be deleted: ")
+  fmt.Scan(&digit)
 
-  fmt.Print("Select the task number: ")
-  fmt.Scan(&userChoice)
-
-  switch userChoice {
-  case "1":
-  	Task1131()
-  case "2":
-    Task1132()
-  case "3":
-    Task1133()
-  case "4":
-    Task1134()
-  case "5":
-    Task1135()
-	case "6":
-		Task1136()
-	case "7":
-		Task1137()
-	case "8":
-		Task1138()
-	case "9":
-		Task1139()
-	case "10":
-		Task11310()
-	case "11":
-		Task11311()
-	case "12":
-		Task11312()
-	case "13":
-		Task11313()
-	case "14":
-		Task11314()
-	case "15":
-		Task11315()
-  default:
-    fmt.Println("Introduced a non-existent variant! Please try again.")
-    Task110() 
+  for searchIndex := range number {
+    if string(number[searchIndex]) != digit {
+        result += (string(number[searchIndex]))
+    }
   }
+  
+  /*Выражение "number[searchIndex]" обращается к символу строки с 
+  индексом "searchIndex" и возвращает его в виде байта. Функция 
+  "string()" преобразует этот байт обратно в строку.*/
+  
+  fmt.Print("Result: ", result)
 }

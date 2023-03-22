@@ -4,10 +4,37 @@ import "fmt"
 
 // 1.9 Условные конструкции 
 
-func Task191() {												//На ввод подается целое число. Если число положительное -
-  var number int												//вывести сообщение "Число положительное", если число отрицательное -
-	                                      //"Число отрицательное". Если подается ноль - вывести сообщение "Ноль"
-	fmt.Print("Enter your number: ")			//Выводить сообщение без кавычек.
+func Tasks19() {
+  var userChoice string
+
+  fmt.Print("Select the task number: ")
+  fmt.Scan(&userChoice)
+
+  switch userChoice {
+  case "1":
+  	PositiveNegativeNumberOrZero()
+  case "2":
+    TheDigitsOfTheNumberAreSeparate()
+  case "3":
+    PrintTheFirstDigitOfNumber()
+  case "4":
+    LuckyTicketOrNot()
+  case "5":
+    LeapYearOrNot() 
+  default:
+    fmt.Println("Introduced a non-existent variant! Please try again.")
+    Tasks19() 
+  }
+}
+
+//На ввод подается целое число. Если число положительное - вывести сообщение "Число положительное",
+//если число отрицательное - "Число отрицательное". Если подается ноль - вывести сообщение "Ноль" 
+//Выводить сообщение без кавычек.
+
+func PositiveNegativeNumberOrZero() {												
+  var number int											
+	                                      
+	fmt.Print("Enter your number: ")			
   fmt.Scan(&number)
     
   switch {
@@ -19,11 +46,13 @@ func Task191() {												//На ввод подается целое числ
     fmt.Println("The number is negative")  
   default:
     fmt.Println("Incorrect input! Try again.")
-    Task191()
+    PositiveNegativeNumberOrZero()
   }
 }
 
-func Task192() {												//По данному трехзначному числу определите, все ли его цифры различны.
+//По данному трехзначному числу определите, все ли его цифры различны.
+
+func TheDigitsOfTheNumberAreSeparate() {												
   var number int
 
   fmt.Println("Enter your number: ")
@@ -36,12 +65,16 @@ func Task192() {												//По данному трехзначному чи�
     fmt.Println("Not all numbers are different.")
   default:
     fmt.Println("Incorrect input! Try again.")
+    TheDigitsOfTheNumberAreSeparate()
   }  
 }
 
-func Task193() {												//Дано неотрицательное целое число. Найдите и выведите первую цифру числа.
+//Дано неотрицательное целое число. Найдите и выведите первую цифру числа.
+
+func PrintTheFirstDigitOfNumber() {												
   var number int 
 
+  fmt.Print("Enter youe number: ")
   fmt.Scan(&number)
     
   switch {
@@ -59,11 +92,15 @@ func Task193() {												//Дано неотрицательное целое
         fmt.Println(number / 10000)
   default:
     fmt.Println("Incorrect input! Try again.")
+    PrintTheFirstDigitOfNumber()
   }
 }
 
-func Task194() {												//Определите является ли билет счастливым. Счастливым считается билет,
-  var (																	//в шестизначном номере которого сумма первых трёх цифр совпадает с суммой трёх последних.
+//Определите является ли билет счастливым. Счастливым считается билет в шестизначном
+//номере которого сумма первых трёх цифр совпадает с суммой трёх последних.
+
+func LuckyTicketOrNot() {												
+  var (																	
 			numberOfTicket int												
    		sumOfNumber1 int
 			sumOfNumber2 int
@@ -73,7 +110,7 @@ func Task194() {												//Определите является ли бил�
   
   if numberOfTicket < 100000 || numberOfTicket > 1000000 {
     fmt.Println("Incorrect input! Try again.")
-    Task194() 
+    LuckyTicketOrNot() 
   }
   
   sumOfNumber1 = numberOfTicket / 100000 + (numberOfTicket / 10000) % 10 + ((numberOfTicket / 1000) % 100) % 10
@@ -86,42 +123,23 @@ func Task194() {												//Определите является ли бил�
   }
 }
 
-func Task195() {													//Требуется определить, является ли данный год високосным, напомним:
-  var year int														//Год является високосным если он соответствует хотя бы одному из
-																					//нижеперечисленных условий: 1) кратен 400; 2) кратен 4, но не кратен 100
+//Требуется определить, является ли данный год високосным, напомним:
+//Год является високосным если он соответствует хотя бы одному из
+//нижеперечисленных условий: 1) кратен 400; 2) кратен 4, но не кратен 100.
+
+func LeapYearOrNot() {													
+  var year int														
+																					
   fmt.Scan(&year)
 
   if year <= 0 || year > 10000 {
     fmt.Println("Incorrect input! Try again.")
-    Task195()
+    LeapYearOrNot()
   }
 
   if year % 400 == 0 || (year % 100 != 0 && year % 4 == 0) {
     fmt.Println("This year is a leap year!")
   } else {
     fmt.Println("This year is not a leap year!")
-  }
-}
-
-func Task19() {
-  var userChoice string
-
-  fmt.Print("Select the task number: ")
-  fmt.Scan(&userChoice)
-
-  switch userChoice {
-  case "1":
-  	Task191()
-  case "2":
-    Task192()
-  case "3":
-    Task193()
-  case "4":
-    Task194()
-  case "5":
-    Task195()
-  default:
-    fmt.Println("Introduced a non-existent variant! Please try again.")
-    Task19() 
   }
 }

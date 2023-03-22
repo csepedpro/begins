@@ -4,31 +4,34 @@ import "fmt"
 
 // 1.5 Переменные и арифметические операции, ввод/вывод данных
 
-func Task15() {
+func Tasks15() {
   var userChoice string
 
-  fmt.Print("Select the tusk number: ")
+  fmt.Print("Select the task number: ")
   fmt.Scan(&userChoice)
 
   switch userChoice {
   case "1":
-    Task151()
+    SequenceOperationWithNumber()
   case "2":
-    Task152()
+    FindTheSquareOfNumber()
   case "3":
-    Task153()
+    PrintTheLastDigitOfNumber()
   case "4":
-    Task154()
+    FindTheNumberOfTens()
   case "5":
-    Task155()
+    NumberOfHoursAndMinutesInDegrees()
   default:
     fmt.Print("Introduced a non-existent variant! Please try again.")
-    Task15()
+    Tasks15()
   }
 }
 
-func Task151() {                  //Напишите программу, которая последовательно делает следующие операции
-  var result int                  //с введённым числом: 1. Число умножается на 2; 2.Затем к числу прибавляется 100.
+//Напишите программу, которая последовательно делает следующие операции
+//с введённым числом: 1. Число умножается на 2; 2.Затем к числу прибавляется 100.
+
+func SequenceOperationWithNumber() {                  
+  var result int                  
   var number int 
     
   fmt.Print("Enter your number: ")
@@ -39,18 +42,19 @@ func Task151() {                  //Напишите программу, кот�
   fmt.Println("Result: ", result)
 }
 
-func Task152() {                  //По данному целому числу, найдите его квадрат.
+//По данному целому числу, найдите его квадрат.
+
+func FindTheSquareOfNumber() {                  
   var number int                  
-  var result int
-    
+  
   fmt.Scan(&number)
-    
-  result = number * number
-    
-  fmt.Print("Result: ", result)
+        
+  fmt.Print("Result: ", number * number)
 }
 
-func Task153() {                 //Дано натруальное число, не превосходящее 1000, выведите его последнюю цифру.
+//Дано натруальное число, не превосходящее 1000, выведите его последнюю цифру.
+
+func PrintTheLastDigitOfNumber() {                 
   var number int
   var result int
 
@@ -66,13 +70,16 @@ func Task153() {                 //Дано натруальное число, �
     fmt.Print("Result: ", result)
   default:
     fmt.Print("Program error! Enter the correct number.")
-    Task153()     
+    PrintTheLastDigitOfNumber()     
   }
 }
 
-func Task154() {                   // Дано неотрицательное целое число, не первосходящее 10000. 
-  var number int                   // Найдите число десятков (то есть вторую цифру справа).
-  var result int = 0
+// Дано неотрицательное целое число, не первосходящее 10000.
+// Найдите число десятков (то есть вторую цифру справа).
+
+func FindTheNumberOfTens() {                    
+  var number int                               
+  var result int
 
   fmt.Print("Enter your number: ")
   fmt.Scan(&number)
@@ -89,20 +96,24 @@ func Task154() {                   // Дано неотрицательное ц
     fmt.Print("Result: ", result)
   default:
     fmt.Print("Program error! Enter the correct number.")
-    Task154()     
+    FindTheNumberOfTens()     
   }
 }
 
-func Task155() {                  //Часовая стрелка повернулась с начала суток на d градусов.
-  var numberOfHours int           //Определите, сколько сейчас целых часов h и целых минут m.
-  var numberOfMinutes int         //На вход программе подается целое число d (0 < d < 360).
+//Часовая стрелка повернулась с начала суток на d градусов.
+//Определите, сколько сейчас целых часов h и целых минут m.
+//На вход программе подается целое число d (0 < d < 360).
+
+func NumberOfHoursAndMinutesInDegrees() {                 
+  var numberOfHours int           
+  var numberOfMinutes int         
     
   fmt.Print()
   fmt.Scan(&numberOfHours)
 
   if numberOfHours > 360 {
     fmt.Print("Too large number entered! Please try again.")
-    Task155()
+    NumberOfHoursAndMinutesInDegrees()
   }
     
   numberOfMinutes = (numberOfHours % 30) * 2

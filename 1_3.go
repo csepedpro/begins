@@ -4,28 +4,32 @@ import "fmt"
 
 // 1.3. Первая программа
 
-func Task13() {
+func Tasks13() {
   var userChoice string
 
-  fmt.Print("Select the tusk number: ")
+  fmt.Print("Select the task number: ")
   fmt.Scan(&userChoice)
 
   switch userChoice {
   case "1":
-    Task131()
+    PrintILikeGoOnce()
   case "2":
-    Task132()
+    PrintILikeGoThreeTimes()
   default:
     fmt.Println("Introduced a non-existent variant! Please try again.")
-    Task13()
+    Tasks13()
   }
 }
 
-func Task131() { 											//Напишите программу, которая выводит "I like Go!".
+//Напишите программу, которая выводит "I like Go!"
+
+func PrintILikeGoOnce() { 											
 	fmt.Print("I like Go!")
 }
 
-func Task132() { 											 //Напишите программу, которая выведет "I like Go!" 3 раза.
+//Напишите программу, которая выведет "I like Go!" 3 раза.
+
+func PrintILikeGoThreeTimes() { 											 
 	for outputIndex := 0; outputIndex < 3; outputIndex++ { 
 		fmt.Println("I like Go!")
 	}

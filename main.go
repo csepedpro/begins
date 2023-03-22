@@ -3,26 +3,26 @@ package main
 import "fmt"
 
 func main() {
-	var userChoice string = ""
+	var userChoice string 
 	
 	fmt.Println("Choose a task: ")
 	fmt.Scan(&userChoice)
 	
 	switch userChoice {
 	case "1.3":
-	  Task13()
+	  Tasks13()
 	case "1.5":
-	  Task15()
+	  Tasks15()
 	case "1.9":
-	  Task19()
+	  Tasks19()
 	case "1.10":
-	  Task110()
+	  Tasks110()
 	case "1.11":
-	  Task1111()
+	  CorrectSquareOfNumber()
 	case "1.12":
-	  Task112()
+	  Tasks112()
 	case "1.13":
-	  Task113()
+	  Tasks113()
 	default:
 	  fmt.Println("Introduced a non-existent variant! Please try again.")
 	  main()
