@@ -327,7 +327,7 @@ func FibonacciNumberOrNot() {
 
   for searchIndex := 1; searchIndex < fibonacciNumber; searchIndex++ {
     result := firstNumber + secondNumber
-
+    
     firstNumber = secondNumber
 
     secondNumber = result

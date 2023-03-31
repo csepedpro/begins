@@ -23,6 +23,18 @@ func main() {
 	  Tasks112()
 	case "1.13":
 	  Tasks113()
+	case "2.1":
+		Tasks21()
+	case "2.3":
+		Tasks23()
+	case "2.4":
+		FunctionWithStructure()
+	case "2.5":
+		Tasks25()
+	case "2.6":
+		ErrorFunction()
+	case "2.7":
+		Tasks27()
 	default:
 	  fmt.Println("Introduced a non-existent variant! Please try again.")
 	  main()
