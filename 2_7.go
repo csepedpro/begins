@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
+	"strconv"
 )
 
 // 2.7 Решение задач
@@ -50,9 +52,14 @@ func FindHypotenuseThroughYwoLegs() {
 //после последней символ '*' добавлять не нужно)
 
 func AddAnAsteriskBetweenLetters() {
-	var (
+	var mainString string
+	
+	fmt.Print("Enter your row: ")
+	fmt.Scan(&mainString)
 
-	)
+	resultString := strings.Replace(mainString, "", "*", -1)
+
+	fmt.Print("Result: ", strings.Trim(resultString, string(resultString[0]))) 
 }
 
 //Дана строка, содержащая только арабские цифры. 
@@ -60,8 +67,29 @@ func AddAnAsteriskBetweenLetters() {
 
 func FindTheLargestDigitInNumber() {
 	var (
-
+		mainString string
+		max int = 0
 	)
+
+	fmt.Print("Enter your string: ")
+	fmt.Scan(&mainString)
+
+	runeString := []rune(mainString)
+
+	for searchIndex := 0; searchIndex < len(runeString); searchIndex++ {
+		if runeString[searchIndex] >= '0' && runeString[searchIndex] <= '9' {
+			digit, _ := strconv.Atoi(string(runeString[searchIndex]))
+				
+			if digit > max {
+				max = digit
+			}	 
+		} else {
+				fmt.Print("Incorrect input! Please try again!")
+				FindTheLargestDigitInNumber()
+			}
+	}
+
+	fmt.Println("MaxNumber is ", max)
 }
 
 //На вход подается целое число. Необходимо возвести 
@@ -69,8 +97,28 @@ func FindTheLargestDigitInNumber() {
 
 func PrintNumberWithDigitsRaisedToSecondPower() {
 	var (
-
+		mainString string
+		resultString string
 	)
+
+	fmt.Print("Enter your number: ")
+	fmt.Scan(&mainString)
+
+	runeString := []rune (mainString)
+
+	for multiplicationIndex := 0; multiplicationIndex < len(runeString); multiplicationIndex++ {
+		if runeString[multiplicationIndex] >= '0' && runeString[multiplicationIndex] <= '9' {
+			digit, _ := strconv.Atoi(string(runeString[multiplicationIndex]))
+			squareOfDigit := digit * digit
+
+			resultString += strconv.Itoa(squareOfDigit)   
+		} else {
+			fmt.Print("Incorrect input! Please tru again.")
+			PrintNumberWithDigitsRaisedToSecondPower()
+		}
+	}
+
+	fmt.Print(resultString)
 }
 
 /*Требуется вычислить период колебаний (t) математического маятника (мы 
