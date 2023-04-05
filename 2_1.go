@@ -118,7 +118,15 @@ func FunctionFibonaci() {
 //Напишите функцию sumInt, принимающую переменное количество аргументов типа int,
 //и возвращающую количество полученных функцией аргументов и их сумму. Пакет 
 //"fmt" уже импортирован, функция и пакет main объявлены.
+  
+func FunctionSumInt(numbers ... int)(int, int) {
+  sumOfNumbers:= 0
 
-func FunctionSumInt() {
+  countOfNumbers := len(numbers)
 
+  for _, number := range numbers {
+    sumOfNumbers += number
+  }
+
+  return countOfNumbers, sumOfNumbers
 }
