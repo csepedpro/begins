@@ -126,8 +126,30 @@ func PrintNumberWithDigitsRaisedToSecondPower() {
 найти циклическую частоту колебания пружинного маятника (w), в формуле w
 стречается масса которую также нужно найти, все нужные формулы приведены ниже.*/
 
-func CalculationOfPhysicalValues() {
-	var (
+var p, v, k float64 
+// Глобальные переменные для вычисления формул в данном задании
 
-	)
+func CalculationOfPhysicalValues() {
+
+	fmt.Scan(&p, &v)
+
+	M()
+	W()
+	T()
+}
+
+func M() float64 {
+	m := p * v
+	return m
+}
+
+func W() float64 {
+	m  := M()
+	return math.Sqrt(k / m)
+}
+
+func T() float64 {
+	w:= W()
+    t:= 6/w
+	return t
 }
