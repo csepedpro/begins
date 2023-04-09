@@ -131,7 +131,7 @@ var p, v, k float64
 
 func CalculationOfPhysicalValues() {
 
-	fmt.Scan(&p, &v)
+	fmt.Scan(&p, &v, &k)
 
 	M()
 	W()

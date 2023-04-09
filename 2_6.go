@@ -12,14 +12,14 @@ func ErrorFunction(){
 
 	fmt.Scan (&number1, &number2)
 
-  result, error := divide(number1, number2)
+  result, err := divide(number1, number2)
 
-  if error == nil{
-    fmt.Print(result)
-  }else{
-	  fmt.Print("Oшибка!!! Повторите попытку!")
-		ErrorFunction()
+  if err != nil{ 
+		fmt.Print("Oшибка!!! Повторите попытку!")
+		return
   }
+
+	fmt.Print(result)
 }
 
 func divide(a int, b int)(int, error) {
