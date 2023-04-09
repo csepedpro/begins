@@ -30,7 +30,7 @@ func Tasks21() {
 //Напишите функцию f(), которая будет принимать 
 //строку text и выводить ее (печатать на экране).
 
-func FunctionF() {
+func FunctionF(){
 	var userText string
 
 	fmt.Println("Enter your text)")
@@ -78,12 +78,11 @@ func VotingFunction() {
 		x	 int
 		y int
 		z int
-		u int
 )
 
-fmt.Scan(&x, &y, &z, &u)
+fmt.Scan(&x, &y, &z)
 
-fmt.Print((x + y + z + u) / 2)
+fmt.Print((x + y + z ) / 2)
 }
 
 //Напишите функцию, которая по указанному натуральному n возвращает φn.
